@@ -1,10 +1,16 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import 'swiper/swiper-bundle.min.css';
+import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import img1 from './images/home-slide-1.jpg';
 import img2 from './images/home-slide-2.jpg';
 import img3 from './images/home-slide-3.jpg';
 
+// Install Swiper modules
+
+
 function HomeSection(){
 
-
+    
     const divStyle = {
         backgroundImage: `url(${img1})`,
         backgroundRepeat: 'no-repeat',
@@ -17,12 +23,27 @@ function HomeSection(){
         backgroundImage: `url(${img3})`,
         backgroundRepeat: 'no-repeat',
       };
+    
 
     return(
         <section className="home" id="home">
-  <div className="swiper home-slider">
-    <div className="swiper-wrapper">
-      <section
+            <div className="swiper home-slider">
+    {/* <div className="swiper-wrapper"> */}
+            <Swiper
+        className="home-slider"
+        loop={true}
+        grabCursor={true}
+        Navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
+        Autoplay={{
+            delay: 3000,  // Slide change interval in milliseconds
+            disableOnInteraction: false,  // Continue autoplay after interaction
+          }}
+      >      
+        <SwiperSlide>
+        <section
         className="swiper-slide slide"
         style={divStyle}
       >
@@ -37,7 +58,9 @@ function HomeSection(){
           </a>
         </div>
       </section>
-      <section
+        </SwiperSlide>
+        <SwiperSlide>
+        <section
         className="swiper-slide slide"
         style={divStyle2}
       >
@@ -52,7 +75,9 @@ function HomeSection(){
           </a>
         </div>
       </section>
-      <section
+        </SwiperSlide>
+        <SwiperSlide>
+        <section
         className="swiper-slide slide"
         style={divStyle3}
       >
@@ -67,10 +92,15 @@ function HomeSection(){
           </a>
         </div>
       </section>
-    </div>
-    <div className="swiper-button-next" />
-    <div className="swiper-button-prev" />
+        </SwiperSlide>
+      
+      
+    {/* </div> */}
+    </Swiper>
+  {/* <div className="swiper-button-next" />
+        <div className="swiper-button-prev" /> */}
   </div>
+  
 </section>
     )
 };
