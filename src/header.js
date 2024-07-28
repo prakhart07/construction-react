@@ -1,14 +1,38 @@
 import { useState } from 'react';
 import './css/style.css';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+  
 
 function Header(){
 
     const [act,setAct]=useState('');
 
     function formaction(){
-        setAct('login-form active');
+        setAct('');
         console.log("act",act);
     }
+
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
 
     return(
         <div>
@@ -29,7 +53,7 @@ function Header(){
       <div id="menu-btn" className="fas fa-bars" />
       <div id="info-btn" className="fas fa-info-circle" />
       <div id="search-btn" className="fas fa-search" />
-      <div id="login-btn" className="fas fa-user" onClick={formaction}><button onClick={formaction} ></button></div>
+      <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}>Open modal</Button></div>
     </div>
     <form action={act} className="search-form">
       <input
@@ -41,7 +65,8 @@ function Header(){
       <label htmlFor="search-box" className="fas fa-search" />
     </form>
    
-    <form action={act} className="login-form">
+
+    {/* <form action={act} className="login-form">
       <h3>login form</h3>
       <input type="email" placeholder="enter your email" className="box" />
       <input type="password" placeholder="enter your password" className="box"/>
@@ -54,7 +79,21 @@ function Header(){
       <p>
         don't have an account <a href="#">create one!</a>
       </p>
-    </form>
+    </form> */}
+
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className="login-form active"
+      >
+        <Box>
+        <Typography>
+        <h3>login form</h3> 
+        </Typography>
+        </Box>
+      </Modal>
    
   </header>
   <div className="contact-info">
