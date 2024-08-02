@@ -17,6 +17,19 @@ const style = {
     p: 4,
   };
 
+  const style1 = {
+    position: 'absolute',
+    top: '120%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: '40rem',
+    background: 'var(--white)',
+    boxShadow: 'var(--box-shadow)',
+    padding: '2rem',
+    textAlign: 'center',
+    animation: 'fadeIn .2s linear',
+    display: 'none',
+  };
   
 
 function Header(){
@@ -88,10 +101,21 @@ function Header(){
         aria-describedby="modal-modal-description"
         className="login-form active"
       >
-        <Box>
-        <Typography>
-        <h3>login form</h3> 
-        </Typography>
+        <Box sx={style1}>
+        <form action={act} className="login-form">
+      <h3>login form</h3>
+      <input type="email" placeholder="enter your email" className="box" />
+      <input type="password" placeholder="enter your password" className="box"/>
+      <div className="flex">
+        <input type="checkbox" name="" id="remember-me" />
+        <label htmlFor="remember-me">remember me</label>
+        <a href="#">forgot password?</a>
+      </div>
+      <input type="submit" defaultValue="login now" className="btn" />
+      <p>
+        don't have an account <a href="#">create one!</a>
+      </p>
+    </form>
         </Box>
       </Modal>
    
