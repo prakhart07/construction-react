@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes, } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes, } from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 import '../src/css/style.css';
