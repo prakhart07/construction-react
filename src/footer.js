@@ -29,7 +29,7 @@ function Footer(){
   </div>
   <div className="credit">
     {" "}
-    created by <span>P.T.</span> | all rights reserved!{" "}
+    Created by <span>P.T.</span> | all rights reserved! |Shubhadi Buildcon{" "}
   </div>
 </section>
     )

@@ -51,7 +51,7 @@ function Header(){
         <div>
             <header className="header">
     <a href="#" className="logo">
-      We<span>Build</span>
+      ShubhAdi<span>BuildCon</span>
     </a>
     <nav className="navbar">
       <a href="#home">Home</a>
@@ -66,7 +66,7 @@ function Header(){
       <div id="menu-btn" className="fas fa-bars" />
       <div id="info-btn" className="fas fa-info-circle" />
       <div id="search-btn" className="fas fa-search" />
-      <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}>Open modal</Button></div>
+      <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}></Button></div>
     </div>
     <form action={act} className="search-form">
       <input
