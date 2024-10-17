@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import img1 from '../src/images/service-1.png';
 import img2 from '../src/images/service-2.png';
 import img3 from '../src/images/service-3.png';
@@ -7,75 +8,31 @@ import img6 from '../src/images/service-6.png';
 import img7 from '../src/images/service-7.png';
 import img8 from '../src/images/service-8.png';
 function Service(){
+  const obj=[{imageid:img1,title:"building construction",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img2,title:"house renovation",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img3,title:"architechture design",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img4,title:"material supply",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img5,title:"construction consultant",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img6,title:"interior design",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img7,title:"building maintenance",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},
+  {imageid:img8,title:"building renovation",description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,necessitatibus"},]
 
     return(
         <section className="services" id="services">
   <h1 className="heading"> our services </h1>
   <div className="box-container">
-    <div className="box">
-      <img src={img1} alt="" />
-      <h3>building construction</h3>
+    { obj?.length > 0 ? obj?.map(service => {
+      return (
+        <div className="box">
+      <img src={service?.imageid} alt="" />
+      <h3>{service?.title}</h3>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
+        {service?.description}
       </p>
     </div>
-    <div className="box">
-      <img src={img2} alt="" />
-      <h3>house renovation</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
-    <div className="box">
-      <img src={img3} alt="" />
-      <h3>architechture design</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
-    <div className="box">
-      <img src={img4} alt="" />
-      <h3>material supply</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
-    <div className="box">
-      <img src={img5} alt="" />
-      <h3>construction consultant</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
-    <div className="box">
-      <img src={img6} alt="" />
-      <h3>interior design</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
-    <div className="box">
-      <img src={img7} alt="" />
-      <h3>building maintenance</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
-    <div className="box">
-      <img src={img8} alt="" />
-      <h3>building renovation</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-        necessitatibus.
-      </p>
-    </div>
+      )
+    }) : "No data avialable"}
+    
   </div>
 </section>
     )
