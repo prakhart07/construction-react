@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation } from 'swiper/modules';
+// import SwiperCore, {  Pagination, Scrollbar, A11y } from 'swiper';
 import img1 from '../src/images/blog-1.jpg';
 import img2 from '../src/images/blog-2.jpg';
 import img3 from '../src/images/blog-3.jpg';
@@ -10,6 +11,11 @@ import img6 from '../src/images/blog-6.jpg';
 
 
 function BlogSection(){
+
+  const obj=[{img:img2,title:"blog 1 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"},
+  {img:img2,title:"blog 2 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"},
+  {img:img2,title:"blog 3 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"},
+  {img:img2,title:"blog 4 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"}]
 
     return(
 //         <section className="blogs" id="blogs">
@@ -115,6 +121,10 @@ function BlogSection(){
         loop={true}
         grabCursor={true}
         spaceBetween={20}
+        allowSlideNext
+        allowTouchMove
+        navigation={true}
+        modules={[Navigation]}
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -127,57 +137,24 @@ function BlogSection(){
           },
         }}
       >
-         <SwiperSlide>
-         <div className="swiper-slide slide">
-        <div className="image">
-           <img src={img2} alt="" />
-         </div>
-         <div className="content">
-           <h3>blog title goes here</h3>
-           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,
-             nobis!
-           </p>
-           <a href="#" className="btn">
-             read more
-           </a>
-         </div>
-       </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="swiper-slide slide">
-        <div className="image">
-           <img src={img2} alt="" />
-         </div>
-         <div className="content">
-           <h3>blog title goes here</h3>
-           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,
-             nobis!
-           </p>
-           <a href="#" className="btn">
-             read more
-           </a>
-         </div>
-       </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div className="swiper-slide slide">
-        <div className="image">
-           <img src={img2} alt="" />
-         </div>
-         <div className="content">
-           <h3>blog title goes here</h3>
-           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,
-             nobis!
-           </p>
-           <a href="#" className="btn">
-             read more
-           </a>
-         </div>
-       </div>
-        </SwiperSlide>
+         {obj.length>0?obj.map(blog=>{
+          return(
+            <SwiperSlide>
+            <div className="swiper-slide slide">
+           <div className="image">
+              <img src={blog.img} alt="" />
+            </div>
+            <div className="content">
+              <h3>{blog.title}</h3>
+              <p>{blog.content}</p>
+              <a href="#" className="btn">
+                {blog.btn}
+              </a>
+            </div>
+          </div>
+           </SwiperSlide>
+          )
+         }):"No data Available"}
       </Swiper>
       </section>
     )
