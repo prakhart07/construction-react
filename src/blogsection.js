@@ -16,7 +16,7 @@ function BlogSection(){
   {img:img2,title:"blog 2 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"},
   {img:img2,title:"blog 3 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"},
   {img:img2,title:"blog 4 title goes here",content:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda,nobis!",btn:"read more"}]
-
+ 
     return(
 //         <section className="blogs" id="blogs">
 //   <h1 className="heading"> our blogs </h1>
@@ -116,6 +116,7 @@ function BlogSection(){
 //   </div>
 // </section>
 <section className="blogs" id="blogs">
+<h1 className="heading"> our blogs </h1>
       <Swiper
         className="blogs-slider"
         loop={true}
@@ -124,6 +125,7 @@ function BlogSection(){
         allowSlideNext
         allowTouchMove
         navigation={true}
+        autoplay={true}
         modules={[Navigation]}
         breakpoints={{
           640: {
@@ -137,18 +139,18 @@ function BlogSection(){
           },
         }}
       >
-         {obj.length>0?obj.map(blog=>{
+         {obj?.length>0 ? obj?.map(blog=>{
           return(
             <SwiperSlide>
             <div className="swiper-slide slide">
            <div className="image">
-              <img src={blog.img} alt="" />
+              <img src={blog?.img} alt="" />
             </div>
             <div className="content">
-              <h3>{blog.title}</h3>
-              <p>{blog.content}</p>
+              <h3>{blog?.title}</h3>
+              <p>{blog?.content}</p>
               <a href="#" className="btn">
-                {blog.btn}
+                {blog?.btn}
               </a>
             </div>
           </div>

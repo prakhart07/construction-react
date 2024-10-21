@@ -6,20 +6,21 @@ function PriceSection(){
   {plan:"ultimate plan",price:650,duration:"/month",work:["interior design","refurbishment","material supply","maintenance","24x7 support"],btn:"choose plan"},
   {plan:"premium plan",price:1250,duration:"/month",work:["interior design","refurbishment","material supply","maintenance","24x7 support"],btn:"choose plan"}]
 
+  
     return(
         <section className="pricing" id="pricing">
   <h1 className="heading"> our pricing </h1>
   <div className="box-container">
-    {obj.length>0?obj.map(plan=>{
+    {obj?.length>0?obj?.map(plan=>{
       return(
         <div className="box">
         <i className="fas fa-home" />
-        <h3>{plan.plan}</h3>
+        <h3>{plan?.plan}</h3>
         <div className="price">
-          <span>$</span>{plan.price}<span>{plan.duration}</span>
+          <span>$</span>{plan?.price}<span>{plan?.duration}</span>
         </div>
         <div className="list">
-          {plan.work.length>0?plan.work.map(work=>{
+          {plan?.work?.length>0?plan?.work?.map(work=>{
             return(
               <p>{work}</p>
             )

@@ -1,3 +1,4 @@
+//import image to use and after that it will display on page
 
 
 function ClientLogo(){

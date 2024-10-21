@@ -20,7 +20,7 @@ function Project(){
   <div className="box-container">
     {obj?.length>0 ? obj.map(project =>{
       return(
-        <a href={project?.image} className="box">
+        <a className="box">
       <div className="image">
         <img src={project?.image} alt="" />
       </div>

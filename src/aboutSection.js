@@ -18,7 +18,7 @@ function AboutSection(){
         mollitia nemo corporis consequatur aspernatur distinctio dignissimos
         velit nam.
       </p>
-      <a href="#services" className="btn">
+      <a href="#about" className="btn">
         read more
       </a>
     </div>
