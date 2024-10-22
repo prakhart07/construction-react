@@ -1,7 +1,20 @@
+import { useState } from "react";
+
 
 
 function Contact(){
 
+  const [reviewData,setReviewData]=useState({name:"",email:"",phone:"",review:""});
+  
+  function handleOnChange(e){
+    console.log(e.target.value);
+    setReviewData({...reviewData,[e.target.name]:e.target.value});
+  }
+  
+  function handleSubmit(){
+    console.log(reviewData);
+    alert(`Data Submitted Successfully ${reviewData.name}`);
+  }
     return(
         <section className="contact" id="contact">
   <h1 className="heading"> contact us </h1>
@@ -14,19 +27,20 @@ function Contact(){
     />
     <form action="">
       <h3>get in touch</h3>
-      <input type="text" placeholder="name" className="box" />
-      <input type="email" placeholder="email" className="box" />
-      <input type="number" placeholder="phone" className="box" />
+      <input type="text" name="name" placeholder="name" className="box" onChange={handleOnChange} />
+      <input type="email" name="email" placeholder="email" className="box" onChange={handleOnChange} />
+      <input type="number" name="phone" placeholder="phone" className="box" onChange={handleOnChange}/>
       <textarea
-        name=""
+        name="review"
         placeholder="message"
         className="box"
         id=""
         cols={30}
         rows={10}
         defaultValue={""}
+        onChange={handleOnChange}
       />
-      <input type="submit" defaultValue="send message" className="btn" />
+      <input type="submit" defaultValue="send message" className="btn" onClick={handleSubmit}/>
     </form>
   </div>
 </section>
