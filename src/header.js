@@ -66,7 +66,8 @@ function Header(){
       <div id="menu-btn" className="fas fa-bars" />
       <div id="info-btn" className="fas fa-info-circle" />
       <div id="search-btn" className="fas fa-search" />
-      <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}></Button></div>
+      {/* <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}></Button></div> */}
+      <div id="login-btn" className="fas fa-user" onClick={formaction}></div>
     </div>
     <form action={act} className="search-form">
       <input
