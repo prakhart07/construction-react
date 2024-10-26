@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import '../src/css/style.css';
 import MainScreen from './mainscreen';
+import Login from './login';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path='*' element={<MainScreen/>}></Route>
           <Route path='/' element={<MainScreen/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
           {/* <Route path='/login' element={<Login/>}></Route> */}
         </Routes>
       </Router> 

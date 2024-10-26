@@ -4,49 +4,24 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useNavigate } from 'react-router-dom';
+import Login from './login';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
-  const style1 = {
-    position: 'absolute',
-    top: '120%',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '40rem',
-    background: 'var(--white)',
-    boxShadow: 'var(--box-shadow)',
-    padding: '2rem',
-    textAlign: 'center',
-    animation: 'fadeIn .2s linear',
-    display: 'none',
-  };
-  
 
 function Header(){
 
     const [act,setAct]=useState('');
-
-    function formaction(){
-        setAct('');
-        console.log("act",act);
-    }
-
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-
+    const openModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
+    
     return(
         <div>
             <header className="header">
@@ -67,7 +42,7 @@ function Header(){
       <div id="info-btn" className="fas fa-info-circle" />
       <div id="search-btn" className="fas fa-search" />
       {/* <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}></Button></div> */}
-      <div id="login-btn" className="fas fa-user" onClick={formaction}></div>
+      <div id="login-btn" className="fas fa-user open-modal-button" onClick={openModal}></div>
     </div>
     <form action={act} className="search-form">
       <input
@@ -78,47 +53,10 @@ function Header(){
       />
       <label htmlFor="search-box" className="fas fa-search" />
     </form>
+    {isModalOpen && <Login closeModal={closeModal} />}
+
+
    
-
-    {/* <form action={act} className="login-form">
-      <h3>login form</h3>
-      <input type="email" placeholder="enter your email" className="box" />
-      <input type="password" placeholder="enter your password" className="box"/>
-      <div className="flex">
-        <input type="checkbox" name="" id="remember-me" />
-        <label htmlFor="remember-me">remember me</label>
-        <a href="#">forgot password?</a>
-      </div>
-      <input type="submit" defaultValue="login now" className="btn" />
-      <p>
-        don't have an account <a href="#">create one!</a>
-      </p>
-    </form> */}
-
-    <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className="login-form active"
-      >
-        <Box sx={style1}>
-        <form action={act} className="login-form">
-      <h3>login form</h3>
-      <input type="email" placeholder="enter your email" className="box" />
-      <input type="password" placeholder="enter your password" className="box"/>
-      <div className="flex">
-        <input type="checkbox" name="" id="remember-me" />
-        <label htmlFor="remember-me">remember me</label>
-        <a href="#">forgot password?</a>
-      </div>
-      <input type="submit" defaultValue="login now" className="btn" />
-      <p>
-        don't have an account <a href="#">create one!</a>
-      </p>
-    </form>
-        </Box>
-      </Modal>
    
   </header>
   <div className="contact-info">
