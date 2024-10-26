@@ -35,7 +35,7 @@ function Header(){
       <a href="#projects">Projects</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
-      <a href="#blogs">Blogsssssssssss</a>
+      <a href="#blogs">Blogs</a>
     </nav>
     <div className="icons">
       <div id="menu-btn" className="fas fa-bars" />
