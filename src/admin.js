@@ -47,7 +47,7 @@ function Admin() {
 
     return (
         <section className="about" id="about">
-            <h1>This is the admin page</h1>
+            <h1>This is the admin Page</h1>
             {showTable ? (
                 <DataTable columns={columns} fixedHeader={true} data={data} />
             ) : (
