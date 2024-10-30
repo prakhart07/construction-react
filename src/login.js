@@ -1,19 +1,22 @@
 // src/Login.js
 import React, { useState } from "react";
 import "./css/login.css"; // Ensure your styles are in place
+import { useNavigate } from "react-router-dom";
 
 function Login({ closeModal }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  let isLogin=false;
+  const Navigate=useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     // Simple validation
-    if (!username || !password) {
-      setError("Please fill in all fields.");
-      return;
+    if (username=='admin' && password=='admin') {
+        isLogin=true;
+      Navigate('/admin',{state:{username:username,isLogin:isLogin}});
     }
 
     setError("");
@@ -51,7 +54,7 @@ function Login({ closeModal }) {
               placeholder="Enter your password"
             />
           </div>
-          <button type="submit" className="login-button">
+          <button type="submit" className="login-button" onClick={handleLogin}>
             Login
           </button>
         </form>

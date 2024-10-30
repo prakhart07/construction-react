@@ -29,9 +29,9 @@ function Header(){
       ShubhAdi<span>BuildCon</span>
     </a>
     <nav className="navbar">
-      <a href="#home">Home</a>
+      <a href="/#home">Home</a>
       <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
+      <a href="/#projects">Projects</a>
       <a href="#pricing">Pricing</a>
       <a href="#blogs">Blogs</a>
       <a href="#about">About</a>
