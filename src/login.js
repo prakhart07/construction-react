@@ -4,7 +4,7 @@ import "./css/login.css"; // Ensure your styles are in place
 import { useNavigate } from "react-router-dom";
 
 function Login({ closeModal }) {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   let isLogin=false;
@@ -16,7 +16,8 @@ function Login({ closeModal }) {
     // Simple validation
     if (username=='admin' && password=='admin') {
         isLogin=true;
-      Navigate('/admin',{state:{username:username,isLogin:isLogin}});
+        localStorage.setItem("isLogin","True");
+      Navigate('/admin',{state:{username:username}});
     }
 
     setError("");

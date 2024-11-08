@@ -8,6 +8,7 @@ import MainScreen from './mainscreen';
 import Login from './login';
 import Admin from './admin';
 import AdminPanel from './adminPanel';
+import ProtectedRoutes from './ProtectedRoute';
 
 function App() {
   return (
@@ -17,7 +18,10 @@ function App() {
           <Route path='*' element={<MainScreen/>}></Route>
           <Route path='/' element={<MainScreen/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
+          <Route element={<ProtectedRoutes/>}>
           <Route path='/admin' element={<AdminPanel/>}></Route>
+          </Route>
+          
           {/* <Route path='/login' element={<Login/>}></Route> */}
         </Routes>
       </Router> 

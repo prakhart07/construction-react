@@ -8,9 +8,10 @@ import img3 from './images/home-slide-3.jpg';
 // Install Swiper modules
 
 
-function HomeSection(){
+function HomeSection(isPage){
 
-    
+    // const {isPage}=props;
+    console.log("props:",isPage);
     const divStyle = {
         backgroundImage: `url(${img1})`,
         backgroundRepeat: 'no-repeat',
@@ -26,7 +27,8 @@ function HomeSection(){
     
 
     return(
-        <section className="home" id="home">
+      <>
+      {isPage == true ? "this is home edit section" : <section className="home" id="home">
             <div className="swiper home-slider">
     {/* <div className="swiper-wrapper"> */}
             <Swiper
@@ -38,7 +40,7 @@ function HomeSection(){
           prevEl: '.swiper-button-prev',
         }}
         Autoplay={{
-            delay: 3000,  // Slide change interval in milliseconds
+            delay: 2000,  // Slide change interval in milliseconds
             disableOnInteraction: false,  // Continue autoplay after interaction
           }}
       >      
@@ -101,7 +103,7 @@ function HomeSection(){
         <div className="swiper-button-prev" /> */}
   </div>
   
-</section>
+</section>}</>
     )
 };
 export default HomeSection;

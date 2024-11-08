@@ -7,10 +7,11 @@ function AdminPanel(){
 
     const Navigate=useNavigate();
     const {state}=useLocation();
+    const isLogin=localStorage.getItem("isLogin");
 
     return(
         <>
-        {state?.isLogin==true ?
+        {isLogin=="True" ?
         <>
         <Header/>
         <Admin/>

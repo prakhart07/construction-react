@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Login from './login';
 
 
@@ -13,6 +13,8 @@ function Header(){
     const [act,setAct]=useState('');
     const [open, setOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const isLogin=localStorage.getItem("isLogin");
+    const Navigate=useNavigate();
 
     const openModal = () => {
       setIsModalOpen(true);
@@ -21,6 +23,12 @@ function Header(){
     const closeModal = () => {
       setIsModalOpen(false);
     };
+
+    function handleLogOut(){
+      localStorage.setItem("isLogin","false");
+      alert("Logged Out");
+      Navigate('/');
+    }
     
     return(
         <div>
@@ -43,6 +51,7 @@ function Header(){
       <div id="search-btn" className="fas fa-search" />
       {/* <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}></Button></div> */}
       <div id="login-btn" className="fas fa-user open-modal-button" onClick={openModal}></div>
+       &nbsp;&nbsp;&nbsp;{isLogin=="True"?<button className='btn-custom btn-primary' onClick={handleLogOut}>LogOut</button>:''}
     </div>
     <form action={act} className="search-form">
       <input

@@ -67,8 +67,11 @@ section {
 
 .btn-custom{
   background: var(--button-color); /* Default color */
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  /* font-size: 1rem; */
+  text-transform: capitalize;
   color: var(--button-text-color, #ffffff);
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;

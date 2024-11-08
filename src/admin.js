@@ -22,11 +22,13 @@ function Admin() {
     ];
 
     const [page, setPage] = useState(null);
+    const [pageName,setPageName]=useState('');
     const [showTable, setShowTable] = useState(true);
 
     function handleClick(row) {
         console.log("row:", row);
-        setPage(row.component); // Set the component directly
+        setPage(row.component);
+        setPageName(row.name) // Set the component directly
         setShowTable(false);
     }
 
@@ -52,11 +54,11 @@ function Admin() {
                 <DataTable columns={columns} fixedHeader={true} data={data} />
             ) : (
                 <>
-                    <h3>Edit functionality for {page}</h3>
+                    <h3>Edit functionality for {pageName}</h3>
                     <button className="btn btn-primary" onClick={() => setShowTable(true)}>
                         Back
                     </button>
-                    {page && <page />} {/* Render the component dynamically */}
+                    {page && <page isPage={true} />} {/* Render the component dynamically */}
                 </>
             )}
         </section>
