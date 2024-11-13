@@ -21,15 +21,23 @@ function Admin() {
         { name: "Blog Section", component: BlogSection },
     ];
 
-    const [page, setPage] = useState(null);
+    const [PageComponent, setPageComponent] = useState(null);
     const [pageName,setPageName]=useState('');
     const [showTable, setShowTable] = useState(true);
+    const [isPage,setIsPage]=useState(false);
 
     function handleClick(row) {
         console.log("row:", row);
-        setPage(row.component);
-        setPageName(row.name) // Set the component directly
         setShowTable(false);
+        setIsPage(true);
+        setPageComponent(() => row.component);
+        setPageName(row.name) // Set the component directly
+    }
+
+    function handleBack(){
+        console.log("PageComponent",PageComponent);
+        setIsPage(false);
+        setShowTable(true);
     }
 
     const columns = [
@@ -55,10 +63,11 @@ function Admin() {
             ) : (
                 <>
                     <h3>Edit functionality for {pageName}</h3>
-                    <button className="btn btn-primary" onClick={() => setShowTable(true)}>
+                    <button className="btn btn-primary" onClick={handleBack}>
                         Back
                     </button>
-                    {page && <page isPage={true} />} {/* Render the component dynamically */}
+                    {/* {page && <page isPage={true} />} Render the component dynamically */}
+                    {PageComponent && <PageComponent isPage={isPage} />} {/* Render the component dynamically */}
                 </>
             )}
         </section>

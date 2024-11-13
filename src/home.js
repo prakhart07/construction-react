@@ -4,14 +4,25 @@ import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import img1 from './images/home-slide-1.jpg';
 import img2 from './images/home-slide-2.jpg';
 import img3 from './images/home-slide-3.jpg';
+import DataTable from 'react-data-table-component';
+import { useEffect, useState } from 'react';
 
 // Install Swiper modules
 
 
-function HomeSection(isPage){
+function HomeSection({isPage}){
 
     // const {isPage}=props;
+    useEffect(() => {
+      if (!isPage) {
+        console.log("isPage is now false. Home content can be displayed.");
+        // Perform actions based on isPage being false, like resetting state or updating UI
+      }
+    }, [isPage]);
+    const [data,setData]=useState('');
     console.log("props:",isPage);
+
+
     const divStyle = {
         backgroundImage: `url(${img1})`,
         backgroundRepeat: 'no-repeat',
@@ -25,10 +36,34 @@ function HomeSection(isPage){
         backgroundRepeat: 'no-repeat',
       };
     
+      const columns = [
+        {
+            name: 'Project Name',
+            selector: row => row.name,
+        },
+        {
+          name: 'Project Image',
+          selector: row => row.image,
+      },
+        {
+            name: 'Action',
+            cell: row => (
+                <button className="btn-custom btn-primary" onClick={() => handleClick(row)}>
+                    Edit
+                </button>
+            ),
+        },
+    ];
+
+    function handleClick(row){
+      console.log(row);
+    }
 
     return(
       <>
-      {isPage == true ? "this is home edit section" : <section className="home" id="home">
+      {isPage ? 
+      <DataTable data={data} columns={columns}/>
+      : <section className="home" id="home">
             <div className="swiper home-slider">
     {/* <div className="swiper-wrapper"> */}
             <Swiper
@@ -103,7 +138,8 @@ function HomeSection(isPage){
         <div className="swiper-button-prev" /> */}
   </div>
   
-</section>}</>
+</section>}
+</>
     )
 };
 export default HomeSection;

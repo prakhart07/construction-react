@@ -14,6 +14,7 @@ function Header(){
     const [open, setOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const isLogin=localStorage.getItem("isLogin");
+    const username='admin';
     const Navigate=useNavigate();
 
     const openModal = () => {
@@ -28,6 +29,15 @@ function Header(){
       localStorage.setItem("isLogin","false");
       alert("Logged Out");
       Navigate('/');
+    }
+
+    function handleLogIn(){
+      if(isLogin=='True'){
+        Navigate('/admin',{state:{username:username}})
+      }
+      else{
+        openModal();
+      }
     }
     
     return(
@@ -50,7 +60,7 @@ function Header(){
       <div id="info-btn" className="fas fa-info-circle" />
       <div id="search-btn" className="fas fa-search" />
       {/* <div id="login-btn" className="fas fa-user" onClick={formaction}><Button onClick={handleOpen}></Button></div> */}
-      <div id="login-btn" className="fas fa-user open-modal-button" onClick={openModal}></div>
+      <div id="login-btn" className="fas fa-user open-modal-button" onClick={handleLogIn}></div>
        &nbsp;&nbsp;&nbsp;{isLogin=="True"?<button className='btn-custom btn-primary' onClick={handleLogOut}>LogOut</button>:''}
     </div>
     <form action={act} className="search-form">
